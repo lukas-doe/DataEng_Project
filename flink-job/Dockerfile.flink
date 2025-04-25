@@ -1,0 +1,8 @@
+FROM flink:1.18.0
+
+# Kafka SQL Connector JAR ins Flink lib-Verzeichnis kopieren
+COPY lib/*.jar /opt/flink/lib/
+
+COPY job.sql /opt/flink/job.sql
+
+CMD ["sql-client.sh", "embedded", "-f", "/opt/flink/job.sql"]

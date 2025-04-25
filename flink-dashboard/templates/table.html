@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperatur-Dashboard</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>Aktuelle Temperaturdaten</h1>
+
+  <p style="color: #555; font-style: italic;">
+    Alle Zeitangaben in <strong>UTC</strong>.<br>
+    Bitte rechne für deutsche Zeit: <br>
+    → <strong>+1 Stunde (MEZ)</strong> im Winter, <strong>+2 Stunden (MESZ)</strong> im Sommer.
+  </p>
+
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Sensor ID</th>
+        <th>Temperatur [°C]</th>
+        <th>Zeitstempel (UTC)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+        <tr>
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
